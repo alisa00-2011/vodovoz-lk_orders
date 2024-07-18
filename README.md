@@ -25,4 +25,4 @@ rating-5-star.
 
 Доставка или самовывоз:
 Доставка = delivery-delivery,
-Самовывоз = delivery-pickup/
+Самовывоз = delivery-pickup.
