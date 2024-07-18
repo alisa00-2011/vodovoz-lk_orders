@@ -1283,6 +1283,12 @@
 	border-radius: 10px;
 }
 
+.cabinet_order_item{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 
 .cabinet-user-info,
 .cabinet-banner{
@@ -1421,23 +1427,21 @@
 .cabinet_order_item{
     font-size: 18px;
     line-height:20px;
-    margin-bottom:6px;
-    -webkit-box-shadow: 2px 2px 4px 0px rgba(34, 60, 80, 0.09);
-    -moz-box-shadow: 2px 2px 4px 0px rgba(34, 60, 80, 0.09);
-    box-shadow: 2px 2px 4px 0px rgba(34, 60, 80, 0.09);
+    margin-bottom:8px;
+    padding: 24px;
+    border-radius: 10px;
 }
 .cabinet_order_item_header{
-    color: #fff;
+    color: #000000;
     -webkit-border-radius: 10px 10px 0 0;
     border-radius: 10px 10px 0 0;
-    padding:12px 10px;
-    background:#6a81ad;
+    background:#fff;
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
-    flex-direction: row;
+    flex-direction: column;
     -webkit-flex-wrap: nowrap;
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
@@ -1450,6 +1454,7 @@
     -webkit-align-items: flex-start;
     -ms-flex-align: start;
     align-items: flex-start;
+    gap: 8px;
 }
 .cabinet_order_item_header > div{
     -webkit-flex: 0 1 auto;
@@ -1462,8 +1467,15 @@
     flex: 1 1 auto;
 }
 
+.cabinet_order_item_title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .cabinet_order_item_body{
-    padding:10px 10px;
+    padding:16px 0 0 0;
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
@@ -1482,6 +1494,7 @@
     -webkit-align-items: flex-start;
     -ms-flex-align: start;
     align-items: flex-start;
+    border-top: 1px solid #C6C6C8;
 }
 .cabinet_order_item_body > div{
     -webkit-flex: 0 1 auto;
@@ -1497,9 +1510,10 @@
 .cabinet_order_item_info_delivery{
     font-weight:bold;
 }
+/*
 .cabinet_order_item_info_adress{
     margin-bottom:8px;
-}
+}*/
 
 .cabinet_order_item_body > div.cabinet_order_item_images{
     display: -ms-flexbox;
@@ -3906,3 +3920,255 @@ numpages white bg
 }
 /** -- /checkbock around time periods -- **/
 
+/**---------CHANGES 17/07/24----------**/
+.cabinet_orders_list .cabinet_order_item .cabinet_order_item_header .cabinet_order_item_title .orderStatus::before{
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  margin-right: 4px;
+}
+
+.cabinet_orders_list .cabinet_order_item .cabinet_order_item_header .cabinet_order_item_status .orderPaymentStatus{
+  border-radius: 20px;
+  padding: 0 8px;
+}
+
+.cabinet_orders_list .cabinet_order_item .cabinet_order_item_header .cabinet_order_item_title .orderStatus{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color:#4D4D4D;
+}
+
+.cabinet_orders_list .cabinet_order_item .cabinet_order_item_header .cabinet_order_item_title .ratingValue .isRatingAvailable{
+  font-weight:400;
+  color: #444444;
+  text-decoration: none;
+}
+
+.cabinet_orders_list .cabinet_order_item .cabinet_order_item_price{
+  font-weight:700;
+  font-size: 20px;
+}
+
+.cabinet_orders_list .cabinet_order_item .cabinet_order_item_header .orderPaymentStatus{
+  color: #fff;
+  line-height: 21px;
+}
+
+.cabinet_orders_list .cabinet_order_item .cabinet_order_item_warning{
+  display: flex;
+  align-items: center;
+  color: #000;
+  background: #F3F4F8;
+  padding: 16px;
+  gap: 16px;
+  border-radius: 16px;
+}
+
+.cabinet_orders_list .cabinet_order_item .cabinet_order_item_body{
+  color: #4D4D4D;
+}
+
+.cabinet_orders_list .cabinet_order_item .cabinet_order_item_body .cabinet_order_item_info .isSelfDelivery, 
+.cabinet_orders_list .cabinet_order_item .cabinet_order_item_body .cabinet_order_item_info_date .deliveryDate,
+.cabinet_orders_list .cabinet_order_item .cabinet_order_item_body .cabinet_order_item_info_schedule .deliverySchedule,
+.cabinet_orders_list .cabinet_order_item .cabinet_order_item_body .cabinet_order_item_info_adress .deliveryAddress{
+  font-weight: 700;
+  color: #000;
+}
+
+.cabinet_orders_list .cabinet_order_item .cabinet_order_item_info{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/*Статус заказа*/
+
+/*Заказ оформляется*/
+.status-order-being-formed .cabinet_order_item_header .cabinet_order_item_title .orderStatus::before{
+  background:  #FF7A01;
+}
+/*Заказ ожидает оплаты*/
+.status-order-awaiting-payment .cabinet_order_item_header .cabinet_order_item_title .orderStatus::before{
+  background:  #F91155;
+}
+/*Заказ оформлен*/
+.status-order-formed .cabinet_order_item_header .cabinet_order_item_title .orderStatus::before{
+  background:  #FF7A01;
+}
+/*Заказ собирается*/
+.status-order-collecting .cabinet_order_item_header .cabinet_order_item_title .orderStatus::before{
+  background:  #FF7A01;
+}
+/*Заказ доставляется*/
+.status-order-delivering .cabinet_order_item_header .cabinet_order_item_title .orderStatus::before{
+  background:  #FF7A01;
+}
+/*Заказ получен*/
+.status-order-received .cabinet_order_item_header .cabinet_order_item_title .orderStatus::before{
+  background:  #2A9B02;
+}
+/*Заказ отменён*/
+.status-order-canceled .cabinet_order_item_header .cabinet_order_item_title .orderStatus::before{
+  background:  #C6C6C8;
+}
+
+/*Статус оплаты заказа*/
+
+/*Заказ не оплачен*/
+.payment-not-paid .cabinet_order_item_header .cabinet_order_item_status .orderPaymentStatus{
+  background: #F91155;
+}
+/*Заказ оплачен*/
+.payment-paid .cabinet_order_item_header .cabinet_order_item_status .orderPaymentStatus{
+  background: #2A9B02;
+}
+/*Нет статуса оплаты*/
+.payment-no-status .cabinet_order_item_header .cabinet_order_item_status{
+  display: none;
+}
+
+
+/*Оценка заказа*/
+.cabinet_orders_list .cabinet_order_item .cabinet_order_item_title .ratingValue .stars .star{
+  width: 16px;
+  height: 16px;
+}
+.cabinet_order_item .cabinet_order_item_title .ratingValue, 
+.cabinet_order_item .cabinet_order_item_title .ratingValue .stars{
+  display: flex;
+  gap: 4px;
+}
+
+/*Нет оценки*/
+.rating-no-rating .cabinet_order_item_title .ratingValue{
+  display: none;
+}
+/*Заказ ждет оценки*/
+.rating-rate-order .cabinet_order_item_title .ratingValue .stars{
+  display: none;
+}
+
+.rating-rate-order .cabinet_order_item_title .ratingValue .isRatingAvailable::after{
+  margin-left: 4px;
+  content: url("../img/icons/cabinet/star-gold.svg");
+}
+
+/*Заказ оценен*/
+.rating-1-star .cabinet_order_item_title .ratingValue .isRatingAvailable,
+.rating-2-star .cabinet_order_item_title .ratingValue .isRatingAvailable,
+.rating-3-star .cabinet_order_item_title .ratingValue .isRatingAvailable,
+.rating-4-star .cabinet_order_item_title .ratingValue .isRatingAvailable,
+.rating-5-star .cabinet_order_item_title .ratingValue .isRatingAvailable{
+  display: none;
+}
+
+/*Рейтинг заказа 1 звезда*/
+.rating-1-star .cabinet_order_item_title .ratingValue .stars .star-1{
+  content: url("../img/icons/cabinet/star-gold.svg");
+}
+.rating-1-star .cabinet_order_item_title .ratingValue .stars .star-2,
+.rating-1-star .cabinet_order_item_title .ratingValue .stars .star-3,
+.rating-1-star .cabinet_order_item_title .ratingValue .stars .star-4,
+.rating-1-star .cabinet_order_item_title .ratingValue .stars .star-5{
+  content: url("../img/icons/cabinet/star-grey.svg");
+}
+
+/*Рейтинг заказа 2 звездыа*/
+.rating-2-star .cabinet_order_item_title .ratingValue .stars .star-1,
+.rating-2-star .cabinet_order_item_title .ratingValue .stars .star-2{
+  content: url("../img/icons/cabinet/star-gold.svg");
+}
+.rating-2-star .cabinet_order_item_title .ratingValue .stars .star-3,
+.rating-2-star .cabinet_order_item_title .ratingValue .stars .star-4,
+.rating-2-star .cabinet_order_item_title .ratingValue .stars .star-5{
+  content: url("../img/icons/cabinet/star-grey.svg");
+}
+
+/*Рейтинг заказа 3 звезды*/
+.rating-3-star .cabinet_order_item_title .ratingValue .stars .star-1,
+.rating-3-star .cabinet_order_item_title .ratingValue .stars .star-2,
+.rating-3-star .cabinet_order_item_title .ratingValue .stars .star-3{
+  content: url("../img/icons/cabinet/star-gold.svg");
+}
+.rating-3-star .cabinet_order_item_title .ratingValue .stars .star-4,
+.rating-3-star .cabinet_order_item_title .ratingValue .stars .star-5{
+  content: url("../img/icons/cabinet/star-grey.svg");
+}
+
+/*Рейтинг заказа 4 звезды*/
+.rating-4-star .cabinet_order_item_title .ratingValue .stars .star-1,
+.rating-4-star .cabinet_order_item_title .ratingValue .stars .star-2,
+.rating-4-star .cabinet_order_item_title .ratingValue .stars .star-3,
+.rating-4-star .cabinet_order_item_title .ratingValue .stars .star-4{
+  content: url("../img/icons/cabinet/star-gold.svg");
+}
+.rating-4-star .cabinet_order_item_title .ratingValue .stars .star-5{
+  content: url("../img/icons/cabinet/star-grey.svg");
+}
+
+/*Рейтинг заказа 5 звезд*/
+.rating-5-star .cabinet_order_item_title .ratingValue .stars .star-1,
+.rating-5-star .cabinet_order_item_title .ratingValue .stars .star-2,
+.rating-5-star .cabinet_order_item_title .ratingValue .stars .star-3,
+.rating-5-star .cabinet_order_item_title .ratingValue .stars .star-4,
+.rating-5-star .cabinet_order_item_title .ratingValue .stars .star-5{
+  content: url("../img/icons/cabinet/star-gold.svg");
+}
+
+/*Варианты доставки*/
+
+/*Вариант доставки: доставка*/
+.delivery-delivery .cabinet_order_item_body .cabinet_order_item_info .cabinet_order_item_info_schedule{
+  display: block;
+}
+/*Вариант доставки: самовывоз*/
+.delivery-pickup .cabinet_order_item_body .cabinet_order_item_info .cabinet_order_item_info_schedule{
+  display: none;
+}
+
+@media (max-width:768px) {
+  .cabinet_order_item{
+    font-size: 14px;
+    line-height:17px;
+    margin-bottom:16px;
+    padding: 16px;
+    gap: 12px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 24px 0px rgba(129, 135, 189, 0.15);
+  }
+  .cabinet_orders_list .cabinet_order_item .cabinet_order_item_header .cabinet_order_item_title .orderStatus::before{
+    width: 10px;
+    height: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+
+  .cabinet_orders_list .cabinet_order_item .cabinet_order_item_title .ratingValue .stars .star{
+    width: 14px;
+    height: 14px;
+  }
+  
+  .cabinet_orders_list .cabinet_order_item .cabinet_order_item_price,
+  .cabinet_orders_list .cabinet_order_item .cabinet_order_item_info .isSelfDelivery{
+    font-size: 16px;
+    line-height:20px;
+  }
+  
+  .cabinet_orders_list .cabinet_order_item .cabinet_order_item_header .cabinet_order_item_title .orderPaymentStatus{
+    line-height: 17px;
+  }
+  
+  .cabinet_orders_list .cabinet_order_item .cabinet_order_item_body{
+    padding: 12px 0 0 0;
+  }
+  
+  
+}
